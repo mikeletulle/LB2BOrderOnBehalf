@@ -1,0 +1,27 @@
+<!--
+ - Created by ffeix on 01/14/2021.
+-->
+
+<aura:component description="Is Logged in As Banner V2"
+                implements="forceCommunity:availableForAllPageTypes"
+                access="global"
+                controller="IsLoggedInAs"
+                >
+
+    <aura:attribute name="scrUser" type="String" access="global" />
+    <aura:attribute name="display" type="String" access="global" />
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+
+    <aura:if isTrue="{!(v.scrUser.length > 0)}">
+        <div class="slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+            <span class="slds-assistive-text">warning</span>
+            <span class="slds-icon_container slds-icon-utility-warning slds-var-m-right_x-small" title="Description of icon when needed">
+                <lightning:icon iconName="utility:unlock" alternativeText="Unlock" title="Unlock" size="small" />
+            </span>
+            <h2>{!v.scrUser}: {!v.display}</h2>
+        </div>
+    </aura:if>
+
+
+</aura:component>	
